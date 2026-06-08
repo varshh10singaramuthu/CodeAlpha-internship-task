@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Store</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px gray;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+        }
+        .logo{
+    font-size:30px;
+    font-weight:bold;
+    color:white;
+}
+    </style>
+</head>
+<body>
+
+<div style="
+background:#222;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<h2 style="color:white;margin:0;">
+🛒 ShopMart
+</h2>
+
+<div>
+
+<a href="/cart/"
+style="color:white;margin-right:20px;">
+Cart
+</a>
+
+<a href="/orders/"
+style="color:white;margin-right:20px;">
+Orders
+</a>
+<a href="/profile/" 
+style="color:white;margin-right:20px;">
+Profile
+</a>
+<a href="/wishlist/"
+style="color:white;margin-right:20px;">
+Wishlist
+</a>
+
+<a href="/logout/"
+style="color:white;">
+Logout
+</a>
+
+</div>
+
+</div>
+<div style="
+background:linear-gradient(135deg,#4facfe,#00f2fe);
+padding:40px;
+text-align:center;
+color:white;
+">
+
+<h1>Welcome to ShopMart</h1>
+
+<p>
+Best Deals on Electronics, Fashion & More
+</p>
+
+</div>
+
+<div class="container">
+    {% for product in products %}
+    <div class="card">
+        <a href="/product/{{ product.id }}/">
+    <img src="{{ product.image }}">
+</a>
+        <h3>{{ product.name }}</h3>
+        <p>₹{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

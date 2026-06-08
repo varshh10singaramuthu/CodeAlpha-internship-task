@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wishlist</title>
+
+<style>
+    body{
+    margin:0;
+    font-family:Arial;
+    background:#f1f3f6;
+}
+
+.navbar{
+    background:#2874f0;
+    color:white;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.links a{
+    color:white;
+    margin-left:20px;
+    text-decoration:none;
+}
+
+.container{
+    width:80%;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    margin-bottom:15px;
+    display:flex;
+    align-items:center;
+}
+
+.card img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-right:20px;
+}
+
+.btn{
+    padding:10px 20px;
+    background:#2874f0;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+/* paste common CSS here */
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">🛒 ShopMart</div>
+    <div class="links">
+        <a href="/">Home</a>
+        <a href="/cart/">Cart</a>
+        <a href="/orders/">Orders</a>
+    </div>
+</div>
+
+<div class="container">
+
+<h2>My Wishlist ❤️</h2>
+
+{% for product in products %}
+
+<div class="card">
+
+    <a href="/product/{{ product.id }}/">
+        <img src="{{ product.image }}">
+    </a>
+
+    <div>
+        <h3>{{ product.name }}</h3>
+        <p>₹{{ product.price }}</p>
+
+        <a href="/add-to-cart/{{ product.id }}/">
+            <button class="btn">Add to Cart</button>
+        </a>
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

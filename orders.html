@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Orders</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f1f3f6;
+}
+
+.navbar{
+    background:#2874f0;
+    color:white;
+    padding:15px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.container{
+    width:80%;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    display:flex;
+    align-items:center;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-right:20px;
+}
+
+.details{
+    flex:1;
+}
+
+.name{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.price{
+    color:green;
+    margin-top:5px;
+}
+
+.date{
+    color:gray;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+🛒 ShopMart - My Orders
+</div>
+
+<div class="container">
+
+{% for order in orders %}
+
+<div class="card">
+
+<a href="/product/{{ order.product.id }}/">
+    <img src="{{ order.product.image }}">
+</a>
+
+<div class="details">
+
+<div class="name">
+{{ order.product.name }}
+</div>
+
+<div class="price">
+₹{{ order.product.price }}
+</div>
+
+<div class="date">
+Ordered on {{ order.order_date }}
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

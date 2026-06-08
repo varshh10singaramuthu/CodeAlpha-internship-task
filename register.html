@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ShopMart Register</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.register-box{
+    background:white;
+    padding:40px;
+    width:420px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.logo{
+    font-size:40px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    background:#28a745;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#218838;
+}
+</style>
+</head>
+
+<body>
+
+<div class="register-box">
+
+<div class="logo">🛒</div>
+
+<h1>ShopMart</h1>
+
+<p>Create Your Account</p>
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="text" name="fullname" placeholder="Full Name" required>
+
+<input type="text" name="username" placeholder="Username" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="text" name="phone" placeholder="Phone Number" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+<button type="submit">
+Create Account
+</button>
+
+</form>
+
+<p>
+Already have an account?
+<a href="/login/">Login</a>
+</p>
+
+</div>
+
+</body>
+</html>
